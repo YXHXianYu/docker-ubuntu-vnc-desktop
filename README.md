@@ -32,35 +32,25 @@ docker build -t vnc-desktop .
 ### 2.2 Run 
 
 * Run with non-root user and some configs (YXHXianYu Using)
-
   * **You should customize this command**
-
-
   ```bash
   docker run -p 6080:80 -v /dev/shm:/dev/shm -e USER=user -e PASSWORD=elefant --name elefant -e RESOLUTION=1920x1080 -v E:\docker-ubuntu-vnc-desktop:/home/user/workspace --cap-add=NET_ADMIN --device=/dev/net/tun vnc-desktop
   ```
-
   * `-e USER=user -e PASSWORD=elefant`: Set default non-root user
-
   * `--name elefant`: Container's name
-  
   * `-e RESOLUTION=1920x1080`: Using a fixed resolution.
     * **I don't recommend using this parameter!**
     * I have double screens, so I can use fullscreen all the time.
     * [Reference](https://github.com/fcwu/docker-ubuntu-vnc-desktop?tab=readme-ov-file#screen-resolution)
-
   * `-v E:\docker-ubuntu-vnc-desktop:/home/user/workspace`: Mount a directory to container
-  
   * `--cap-add=NET_ADMIN --device=/dev/net/tun`: Enable TUN device
 
 * Run with root user:
-
   ```bash
   docker run -p 6080:80 -v /dev/shm:/dev/shm --name elefant vnc-desktop
   ```
 
 * Run with non-root user:
-
   ```bash
   docker run -p 6080:80 -v /dev/shm:/dev/shm --name elefant -e USER=user -e PASSWORD=password vnc-desktop
   ```
@@ -68,9 +58,7 @@ docker build -t vnc-desktop .
 ### 2.3 Access container
 
 * Browse http://localhost:6080/
-
 <img src="https://raw.github.com/fcwu/docker-ubuntu-vnc-desktop/master/screenshots/lxde.png?v1" width=700/>
-
 * You can see a *bird logo* on the left side of the menu below.
 
 ### 2.4 Control container
